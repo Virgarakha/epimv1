@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins';
+        }
+        html {
+          scroll-behavior: smooth;
+        }
+        .circle {
+          width: 45px;
+          height: 45px;
+          background-color: white;
+          border-radius: 50px;
+        }
+        body {
+            background-color: #151515;
+        }
+        @font-face {
+            font-family: 'Anton';
+            src: url(asset/font/Anton-Regular.ttf);
+        }
+        @font-face {
+            font-family: 'Poppins';
+            src: url(asset/font/Poppins-Regular.ttf);
+        }
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 5;
+            background-color: #131313;
+            display: flex;
+            justify-content: center;
+            height: 9vh;
+            font-family: 'Poppins';
+            font-weight: 600;
+        }
+        .nav {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .logo {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 700;
+        }
+        .logo img {
+            width: 35px;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .flex ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        .flex ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgb(46, 46, 46);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .search input {
+            background-color: transparent;
+            border: none;
+            color: white;
+            outline: none;
+        }
+        .space {
+            height: 9vh;
+        }
+        .banner {
+            width: 100%;
+            height: 130vh;
+            background-image: url(asset/img/background/background_banner.png);
+            background-size: cover;
+            animation: bg infinite alternate 5s;
+        }
+        .banner-content {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin: 0 auto;
+            padding-top: 20vh;
+        }
+        .banner h1 {
+            font-family: 'Anton';
+            line-height: 120px;
+            font-size: 110px;
+        }
+        .banner p {
+            font-size: 25px;
+            color: rgb(194, 194, 194);
+        }
+        .flexbtn {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 20px;
+        }
+        .flexbtn li a {
+            background-color: #7b00ff;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Anton';
+            letter-spacing: 1px;
+            color: white;
+            text-decoration: none;
+        }
+        .turnamen {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            gap: 20px;
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin-top: -30vh;
+        }
+        .card {
+            width: 25%;
+            background-color: #0a0a0a;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transform: skew(-10deg);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h1 {
+            font-size: 20px;
+            color: white;
+        }
+        .card li {
+            margin-top: 20px;
+            font-size: 20px;
+            color: gray;
+            display: flex;
+            gap: 10px;
+        }
+        .card li img {
+            width: 20px;
+        }
+        .flexbtn2 {
+            display: flex;
+        }
+        .flexbtn2 li a {
+            padding: 20px;
+            background-color: #7b00ff;
+            text-decoration: none;
+            text-align: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+        .container {
+            width: 100%;
+            height: 130vh;
+            padding-top: 60vh;
+        }
+        .container-content {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            gap: 120px;
+            justify-content: center;
+        }
+        .right {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            width: 50%;
+            font-weight: 600;
+        }
+        .right h1 {
+            font-size: 60px;
+            font-family: 'Anton';
+        }
+        .right p {
+            color: rgb(219, 219, 219);
+            font-size: 20px;
+        }
+        .container-content .teks {
+            color: white;
+            width: 15%;
+            left: 200px;
+            top: 40px;
+            position: relative;
+        }
+        .container .title {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 280vh;
+            z-index: 0;
+        }
+        .container .title h1 {
+            color: white;
+            font-weight: 600;
+            font-family: 'Anton';
+            font-size: 60px;
+            text-align: center;
+        }
+        .container-content .teks h1 {
+            font-weight: 600;
+            font-family: 'Anton';
+        }
+        .faq-container h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 50px;
+            margin-bottom: 24px;
+            margin-top: 20vh;
+            color: #ffffff;
+            text-align: start;
+        }
+        .faq-container {
+            background-image: url(asset_epim/asset/img/background/background_game_abu_abu.png);
+            max-width: 100%;
+            height: 100vh;
+            margin: 40px auto;
+            font-family: 'Poppins';
+            padding: 0 16px;
+        }
+        .faq-item {
+            margin-bottom: 16px;
+            width: 90%;
+            margin: 20px auto;
+            border: 1px solid #80808000;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #1e1e1e;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        .faq-question {
+            background-color: #353535;
+            color: #ffffff;
+            padding: 14px 20px;
+            font-weight: bold;
+            font-size: 20px;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .faq-question:hover {
+            background-color: #060606;
+        }
+        .faq-question:focus {
+            outline: 2px solid #2c2c2c;
+        }
+        .faq-icon {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #8a2be2;
+            user-select: none;
+            transition: transform 0.2s ease;
+        }
+        .faq-answer {
+            background-color: #1e1e1e;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            color: #d2d2d2;
+            line-height: 1.6;
+            display: none;
+        }
+        .gallery-section {
+            background-color: #151515;
+            padding: 60px 20px;
+            width: 80%;
+            margin: 0 auto 80px auto;
+            background-image: url(asset_epim/asset/img/background/background_game_abu_abu.png);
+            color: white;
+        }
+        .gallery-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 40px;
+            user-select: none;
+        }
+        @media (min-width: 640px) {
+            .gallery-title {
+                font-size: 64px;
+            }
+        }
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        @media (min-width: 768px) {
+            .gallery-container {
+                flex-direction: row;
+            }
+        }
+        .gallery-left {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .gallery-left {
+                width: 50%;
+            }
+        }
+        .gallery-top-left {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+            border: 6px solid white;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .gallery-top-left img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .gallery-top-left::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 40px; height: 40px;
+            border-top: 8px solid #7B00FF;
+            border-left: 8px solid #7B00FF;
+            z-index: 2;
+        }
+        .gallery-top-left::after {
+            content: "";
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 40px; height: 40px;
+            border-bottom: 8px solid white;
+            border-right: 8px solid white;
+            z-index: 2;
+        }
+        .gallery-bottom-row {
+            display: flex;
+            gap: 32px;
+            width: 100%;
+        }
+        .gallery-bottom-image {
+            position: relative;
+            width: 50%;
+            padding-top: 75%; /* 4:3 */
+            border: 6px solid white;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .gallery-bottom-image img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .gallery-bottom-image.first::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 32px; height: 32px;
+            border-top: 6px solid white;
+            border-left: 6px solid white;
+            z-index: 2;
+        }
+        .gallery-bottom-image.first::after {
+            content: "";
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 32px; height: 32px;
+            border-bottom: 6px solid #7B00FF;
+            border-right: 6px solid #7B00FF;
+            z-index: 2;
+        }
+        .gallery-bottom-image.second::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 32px; height: 32px;
+            border-top: 6px solid #7B00FF;
+            border-left: 6px solid #7B00FF;
+            z-index: 2;
+        }
+        .gallery-bottom-image.second::after {
+            content: "";
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 32px; height: 32px;
+            border-bottom: 6px solid white;
+            border-right: 6px solid white;
+            z-index: 2;
+        }
+        .gallery-right {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+            border: 6px solid white;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        @media (min-width: 768px) {
+            .gallery-right {
+                width: 50%;
+            }
+        }
+        .gallery-right img,
+        .gallery-right video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .gallery-right::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 56px; height: 56px;
+            border-top: 8px solid white;
+            border-left: 8px solid white;
+            z-index: 2;
+        }
+        .gallery-right::after {
+            content: "";
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 56px; height: 56px;
+            border-bottom: 8px solid #7B00FF;
+            border-right: 8px solid #7B00FF;
+            z-index: 2;
+        }
+        .gallery-right .top-right-corner {
+            position: absolute;
+            top: 0; right: 0;
+            width: 56px; height: 56px;
+            border-top: 8px solid #7B00FF;
+            border-right: 8px solid #7B00FF;
+            z-index: 2;
+        }
+        .gallery-right .bottom-left-corner {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 56px; height: 56px;
+            border-bottom: 8px solid white;
+            border-left: 8px solid white;
+            z-index: 2;
+        }
+        .gallery-section a {
+            text-decoration: none;
+            background-color: #2c2c2c;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        footer {
+            margin-top: 20vh;
+            width: 100%;
+            background-color: #000000;
+            color: #8a8a8a;
+            padding: 40px;
+            font-family: 'Poppins';
+        }
+        .footer1 {
+            width: 80%;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1b1b1b;
+            padding-bottom: 10px;
+        }
+        .footer-logo {
+            font-weight: bold;
+            font-size: 20px;
+            background-color: #252525;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 5px;
+        }
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .footer-nav li a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+        }
+        .footer-icons a {
+            margin-left: 10px;
+        }
+        .footer-icons img {
+            width: 24px;
+            height: 24px;
+            filter: grayscale(100%);
+            transition: 0.3s;
+        }
+        .footer-icons img:hover {
+            filter: grayscale(0%);
+        }
+
+.tournament-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 14, 14, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup-content {
+    background: linear-gradient(145deg, #141414, #1f1f1f);
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 520px;
+    position: relative;
+    text-align: start;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    color: white;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.popup-content img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close-popup:hover {
+    color: #fff;
+}
+
+.popup-details p {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.popup-details img {
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.popup-description h2 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    color: #b9aaff;
+    text-align: start;
+}
+
+.JoinBtn {
+  font-family: 'Poppins';
+}
+
+.popup-content .JoinBtn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #6b48ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+.popup-content .JoinBtn:hover {
+    background: #5a3ad4;
+}
+   
+        .gallery-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(14, 14, 14, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gallery-popup-content {
+            background: linear-gradient(145deg, #141414, #1f1f1f);
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 720px;
+            position: relative;
+            text-align: start;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            color: white;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .gallery-popup-content img,
+        .gallery-popup-content video {
+            width: 100%;
+            max-height: 60vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+
+        .close-gallery-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .hidden {
+          display: none;
+        }
+
+        .close-gallery-popup:hover {
+            color: #fff;
+        }
+        .popup-details p {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .popup-details img {
+            width: 20px;
+            filter: brightness(0) invert(1);
+        }
+        .popup-description h2 {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            color: #b9aaff;
+            text-align: start;
+        }
+        .JoinBtn {
+            font-family: 'Poppins';
+        }
+        .popup-content .JoinBtn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #6b48ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .popup-content .JoinBtn:hover {
+            background: #5a3ad4;
+        }
+        @keyframes mlaku {
+            0% { scale: 1; }
+            10% { scale: 1.05; }
+            30% { scale: 1; }
+            100% { scale: 1; }
+        }
+        @keyframes mlaku2 {
+            0% { margin-top: 0; color: white; }
+            10% { margin-top: 10px; color: #7B00FF; }
+            30% { margin-top: 0; color: white; }
+            100% { margin-top: 0; color: white; }
+        }
+        @keyframes bg {
+            from { background-position-x: 0; }
+            to { background-position-x: -50px; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <div class="navbar">
+        <div class="nav">
+            <div class="logo">
+                <img src="asset/img/logo_sixplay.png" alt="">
+                <h1>I X P L A Y</h1>
+            </div>
+            <div class="flex">
+                <ul>
+                    <li><a href="">BERANDA</a></li>
+                    <li><a href="#turnamen">TURNAMEN</a></li>
+                    <li><a href="#galeri">GALERI</a></li>
+                    <li><a href="pages/login.html">MASUK</a></li>
+                </ul>
+                <div class="search">
+                    <img src="asset/icon/search.svg" alt="">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="banner">
+        <div class="banner-content">
+            <h1>BANGUN TIM MU LALU KUASAI BRACKET </h1>
+            <p>Bergabunglah dengan Six Esport SMKN 6 JEMBER, temukan rival-rival tangguh, dan menangkan semuanya bersama tim terbaikmu. </p>
+            <div id="turnamen" style="padding-top: 5vh;" class="flexbtn">
+                <li><a href="">TEMUKAN TURNAMEN</a></li>
+                <li><a style="background-color: white; color: black;" href="">DAFTAR SEKARANG</a></li>
+            </div>
+        </div>
+    </div>
+    <div class="turnamen">
+        <div class="card" style="animation:mlaku infinite 5s; animation-delay: 0.5s;">
+            <img src="asset/img/tourml/1.png" alt="">
+            <h1>MOBILE LEGEND SMK/SMA JEMBER CUP</h1>
+            <li><img src="asset/icon/credit-card.svg" alt="">RP 50.000</li>
+            <li><img src="asset/icon/calendar.svg" alt="">SABTU 01 OCT 2025</li>
+            <li><img src="asset/icon/map-pin.svg" alt="">SMKN 6 JEMBER</li>
+            <div class="flexbtn2" style="gap: 20px;">
+                <li><a onclick="showTournamentPopup('Free Fire SMP/MTS Jember Cup', 'Rp 50.000', 'SAB, 01 Oct 2025', 'SMKN 6 JEMBER', 'Free Fire')" style="width: 280px; padding: 20px; color: white;">Gabung Turnamen</a></li>
+                <li><a style="background-color: white; padding: 10px;" href=""><img style="width: 40px;" src="asset/icon/bookmark.png" alt=""></a></li>
+            </div>
+        </div>
+        <div class="card" style="animation:mlaku infinite 5s; animation-delay: 1s;">
+            <img src="asset/img/tourml/1.png" alt="">
+            <h1>MOBILE LEGEND SMK/SMA JEMBER CUP</h1>
+            <li><img src="asset/icon/credit-card.svg" alt="">RP 50.000</li>
+            <li><img src="asset/icon/calendar.svg" alt="">SABTU 01 OCT 2025</li>
+            <li><img src="asset/icon/map-pin.svg" alt="">SMKN 6 JEMBER</li>
+            <div class="flexbtn2" style="gap: 20px;">
+                <li><a onclick="showTournamentPopup('Free Fire SMP/MTS Jember Cup', 'Rp 50.000', 'SAB, 01 Oct 2025', 'SMKN 6 JEMBER', 'Free Fire')" style="width: 280px; padding: 20px; color: white;" >Gabung Turnamen</a></li>
+                <li><a style="background-color: white; padding: 10px;" href=""><img style="width: 40px;" src="asset/icon/bookmark.png" alt=""></a></li>
+            </div>
+        </div>
+        <div class="card" style="animation:mlaku infinite 5s; animation-delay: 1.5s;">
+            <img src="asset/img/tourml/1.png" alt="">
+            <h1>MOBILE LEGEND SMK/SMA JEMBER CUP</h1>
+            <li><img src="asset/icon/credit-card.svg" alt="">RP 50.000</li>
+            <li><img src="asset/icon/calendar.svg" alt="">SABTU 01 OCT 2025</li>
+            <li><img src="asset/icon/map-pin.svg" alt="">SMKN 6 JEMBER</li>
+            <div class="flexbtn2" style="gap: 20px;">
+                <li><a onclick="showTournamentPopup('Free Fire SMP/MTS Jember Cup', 'Rp 50.000', 'SAB, 01 Oct 2025', 'SMKN 6 JEMBER', 'Free Fire')" style="width: 280px; padding: 20px; color: white;" >Gabung Turnamen</a></li>
+                <li><a style="background-color: white; padding: 10px;" href=""><img style="width: 40px;" src="asset/icon/bookmark.png" alt=""></a></li>
+            </div>
+        </div>
+        <div class="card" style="animation:mlaku infinite 5s; animation-delay: 2s;">
+            <img src="asset/img/tourml/1.png" alt="">
+            <h1>MOBILE LEGEND SMK/SMA JEMBER CUP</h1>
+            <li><img src="asset/icon/credit-card.svg" alt="">RP 50.000</li>
+            <li><img src="asset/icon/calendar.svg" alt="">SABTU 01 OCT 2025</li>
+            <li><img src="asset/icon/map-pin.svg" alt="">SMKN 6 JEMBER</li>
+            <div class="flexbtn2" style="gap: 20px;">
+                <li><a onclick="showTournamentPopup('Free Fire SMP/MTS Jember Cup', 'Rp 50.000', 'SAB, 01 Oct 2025', 'SMKN 6 JEMBER', 'Free Fire')" style="width: 280px; padding: 20px; color: white;">Gabung Turnamen</a></li>
+                <li><a style="background-color: white; padding: 10px;" href=""><img style="width: 40px;" src="asset/icon/bookmark.png" alt=""></a></li>
+            </div>
+        </div>
+    </div>
+    <div id="tentang" class="container" style="background-image: url(asset/img/background/background_game_abu_abu.png); background-size: cover;" >
+        <div class="container-content">
+            <img src="asset/img/img_about.png" alt="">
+            <div class="right">
+                <h1>TENTANG KAMI</h1>
+                <h1 style="color: #7b00ff;">SIX PLAY</h1>
+                <p>Kami adalah platform resmi e-sport SMKN 6 Jember yang mengembangkan bakat dan semangat kompetitif siswa lewat turnamen seru seperti Free Fire, Mobile Legends, PUBG, dan valo, sebagai ajang unjuk skill, mempererat solidaritas, dan mengharumkan nama sekolah.</p>
+                <div style="margin-top: 5vh;" class="flexbtn">
+                    <li><a href="">SOSIAL MEDIA</a></li>
+                    <li><a style="background-color: white; color: black;" href="#turnamen">IKUTI TURNAMEN</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline" class="container" style="background-image: url(asset/img/background/background_timeline.png); background-size: cover;">
+        <div class="title">
+            <h1 >TIMELINE</h1>
+            <h1 style="color: #7b00ff;">TIMELINE</h1>
+        </div>
+        <div style="width: 90%; gap: 100px; position: absolute;" class="container-content">
+            <div style="animation:mlaku2 infinite 5s; animation-delay: 0.5s;" class="teks">
+                <h1>PENDAFTARAN DIBUKA</h1>
+                <p>Peserta mendaftar turnamen secara online dengan data lengkap (nama tim, asal sekolah, alamat email yang dapat dihubungi)</p>
+            </div>
+            <div style="animation:mlaku2 infinite 5s; animation-delay: 1s; top: 150px;" class="teks">
+                <h1>PEMBAGIAN TIKET & JADWAL</h1>
+                <p>Setiap tim yang telah mendaftar akan menerima e-ticket berisi jadwal pertandingan, rules, dan ID lobby. </p>
+            </div>
+            <div style="animation:mlaku2 infinite 5s; animation-delay: 1.5s;" class="teks">
+                <h1>TECHNICAL MEETING</h1>
+                <p>Diadakan pertemuan daring/luring untuk menjelaskan teknis pertandingan, sistem gugur, larangan cheat, dan tata tertibnya </p>
+            </div>
+            <div style="animation:mlaku2 infinite 5s; animation-delay: 2s; top: 150px; left: 220px;" class="teks">
+                <h1>HARI -H TURNAMEN</h1>
+                <p>Tim memasuki lobby sesuai jadwal. Pertandingan berlangsung dengan peraturan yang tertera</p>
+            </div>
+            <div style="animation:mlaku2 infinite 5s; animation-delay: 2.5s;" class="teks">
+                <h1>PENGUMUMAN PEMENANG</h1>
+                <p>Tim terbaik bertanding di babak final. Pemenang diumumkan di website dan media sosial, serta menerima hadiah & sertifikat. </p>
+            </div>
+        </div>
+    </div>
+    <div class="faq-container" style="width: 80%; background-image: url(asset/img/background/background_game_abu_abu.png);" >
+        <h1 style="font-size: 300px; color: #7b00ff; font-family: 'Anton'; font-weight: 400; text-align: center; display: flex; flex-direction: column; justify-content: center;">FAQ</h1>
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="answer1" id="question1">
+                Bagaimana cara mendaftar turnamen?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" id="answer1" role="region" aria-labelledby="question1">
+                Untuk mendaftar turnamen, kunjungi halaman <strong>Pendaftaran</strong>, isi formulir lengkap dengan data tim atau individu, lalu klik tombol <em>"Daftar"</em>.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="answer2" id="question2">
+                Bagaimana cara membeli tiket turnamen?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" id="answer2" role="region" aria-labelledby="question2">
+                Masuk ke halaman <strong>Tiket</strong>, pilih event yang ingin kamu tonton, klik <em>"Beli Tiket"</em>, lalu selesaikan pembayaran melalui metode yang tersedia.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="answer3" id="question3">
+                Bagaimana sistem turnamen berlangsung?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" id="answer3" role="region" aria-labelledby="question3">
+                Turnamen diselenggarakan dalam format eliminasi atau grup, tergantung jenis game. Jadwal dan peraturan lengkap tersedia setelah pendaftaran.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="answer4" id="question4">
+                Di mana saya bisa melihat jadwal pertandingan?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" id="answer4" role="region" aria-labelledby="question4">
+                Jadwal pertandingan dapat dilihat di halaman <strong>Jadwal</strong> atau akan dikirim melalui email setelah proses pendaftaran selesai.
+            </div>
+        </div>
+    </div>
+    <section id="galeri" class="gallery-section" aria-label="Galeri">
+        <h2 class="gallery-title">GALERI</h2>
+        <div style="margin-bottom: 40px;" class="gallery-container">
+            <div class="gallery-left">
+                <div class="gallery-top-left" onclick="showGalleryPopup('asset/hsjr/DSC_2813.JPG', 'image')">
+                    <img src="asset/hsjr/DSC_2813.JPG" alt="Mobile game screen showing a game lobby with people in the background in a room" />
+                </div>
+                <div class="gallery-bottom-row">
+                    <div class="gallery-bottom-image first" onclick="showGalleryPopup('asset/hsjr/DSC_3083.JPG', 'image')">
+                        <img src="asset/hsjr/DSC_3083.JPG" alt="Group of people sitting at a table in front of a red backdrop with logos" />
+                    </div>
+                    <div class="gallery-bottom-image second" onclick="showGalleryPopup('asset/hsjr/DSC_5745.JPG', 'image')">
+                        <img src="asset/hsjr/DSC_5745.JPG" alt="Person playing a game with a headset on in a room with windows" />
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-right" onclick="showGalleryPopup('asset/hsjr/0812.mp4', 'video')">
+                <video autoplay muted loop>
+                    <source src="asset/hsjr/0812.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung video.
+                </video>
+                <div class="top-right-corner"></div>
+                <div class="bottom-left-corner"></div>
+            </div>
+        </div>
+        <div class="fl" style="display: flex; justify-content: center;">
+            <a href="">Lihat Galeri Lainnya</a>
+        </div>
+    </section>
+    <footer>
+        <div class="footer1" style="font-family: 'Poppins';">
+            <div class="footer-top">
+                <div class="logo">
+                    <img src="asset/img/logo_smea.png" alt="">
+                    <img src="asset/img/logo_sixplay.png" alt="">
+                    <h1>I X P L A Y</h1>
+                </div>
+                <ul class="footer-nav">
+                    <li><a href="#home">BERANDA</a></li>
+                    <li><a href="#turnamen22">TURNAMEN</a></li>
+                    <li><a href="#galeri">GALERI</a></li>
+                    <li><a href="pages/login.html">MASUK</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom" style="font-family: 'Poppins';">
+                <div style="display: flex; flex-direction: column;">
+                    <p>RCVP+R39, Jl. PB.Sudirman, Tekoan, Tanggul Kulon, Kec. Tanggul, Kabupaten Jember, Jawa Timur 68155</p>
+                    <p>© 2025 Copyright by sixplay</p>
+                </div>
+                <div class="footer-icons">
+                    <a href="#"><img style="filter: grayscale(0);" src="asset/img/logo_smea.png" alt="smea"></a>
+                    <a href="#"><img src="asset/icon/Facebook F.png" alt="Facebook"></a>
+                    <a href="#"><img src="asset/icon/Instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="asset/icon/X.png" alt="Twitter"></a>
+                    <a href="#"><img src="asset/icon/WhatsApp.png" alt="Whatsapp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="tournament-popup hidden" id="tournamentPopup">
+        <div class="popup-content">
+            <a class="close-popup" onclick="closeTournamentPopup()">X</a>
+            <img style="margin: 20px 0;" src="asset/img/tourml/1.png" alt="">
+            <h1 id="popupTitle"></h1>
+            <div class="popup-details">
+                <p><img src="asset/icon/credit-card.svg" alt=""> <span id="popupFee"></span></p>
+                <p><img src="asset/icon/calendar.svg" alt=""> <span id="popupDate"></span></p>
+                <p><img src="asset/icon/map-pin.svg" alt=""> <span id="popupLocation"></span></p>
+            </div>
+            <div class="popup-description">
+                <h2>Deskripsi Turnamen</h2>
+                <p style="text-align: start;">Ikuti turnamen seru ini dan tunjukkan kemampuanmu! Daftar sekarang untuk berkesempatan memenangkan hadiah menarik dan bergabung dengan komunitas esport SMKN 6 Jember.</p>
+                <p style="margin-top: 10px; color: red; font-weight: 600;">Unduh GuideBook untuk Deskripsi yang lebih jelas</p>
+            </div>
+            <a href="pages/login.html" class="JoinBtn">Daftar Sekarang</a>
+            <a class="JoinBtn" style="background-color: white; color: black; margin-left: 10px;" href="asset_epim/asset/GUIDE BOOK.pdf" target="_blank" >Unduh GuideBook</a>
+        </div>
+    </div>
+    <div class="gallery-popup hidden" id="galleryPopup">
+        <div class="gallery-popup-content">
+            <a class="close-gallery-popup" onclick="closeGalleryPopup()">X</a>
+            <div id="galleryMedia"></div>
+        </div>
+    </div>
+    <script>
+        const tournamentPopup = document.getElementById('tournamentPopup');
+        const galleryPopup = document.getElementById('galleryPopup');
+        const galleryMedia = document.getElementById('galleryMedia');
+
+        function showTournamentPopup(title, fee, date, location, game) {
+            document.getElementById('popupTitle').textContent = title;
+            document.getElementById('popupFee').textContent = fee;
+            document.getElementById('popupDate').textContent = date;
+            document.getElementById('popupLocation').textContent = location;
+            tournamentPopup.classList.remove('hidden');
+            tournamentPopup.classList.add('muncul');
+            tournamentPopup.style.animation = 'fadeIn 0.4s';
+        }
+
+        function closeTournamentPopup() {
+            tournamentPopup.style.animation = 'fadeOut 0.4s';
+            setTimeout(() => {
+                tournamentPopup.classList.remove('muncul');
+                tournamentPopup.classList.add('hidden');
+            }, 400);
+        }
+
+        function showGalleryPopup(src, type) {
+            galleryMedia.innerHTML = '';
+            if (type === 'image') {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Gallery media';
+                galleryMedia.appendChild(img);
+            } else if (type === 'video') {
+                const video = document.createElement('video');
+                video.src = src;
+                video.type = 'video/mp4';
+                video.controls = true;
+                video.autoplay = true;
+                video.muted = true;
+                galleryMedia.appendChild(video);
+            }
+            galleryPopup.classList.remove('hidden');
+            galleryPopup.classList.add('muncul');
+            galleryPopup.style.animation = 'fadeIn 0.4s';
+        }
+
+        function closeGalleryPopup() {
+            galleryPopup.style.animation = 'fadeOut 0.4s';
+            setTimeout(() => {
+                galleryPopup.classList.remove('muncul');
+                galleryPopup.classList.add('hidden');
+                galleryMedia.innerHTML = '';
+            }, 400);
+        }
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const expanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', !expanded);
+                const answer = document.getElementById(button.getAttribute('aria-controls'));
+                if (!expanded) {
+                    answer.style.display = 'block';
+                    button.querySelector('.faq-icon').textContent = '−';
+                } else {
+                    answer.style.display = 'none';
+                    button.querySelector('.faq-icon').textContent = '+';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
